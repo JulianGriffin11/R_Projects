@@ -1,4 +1,4 @@
-# 🎵 Spotify Song Popularity Analysis: Linear Regression 🎶  
+# 🎵 Spotify Song Popularity Analysis: Linear Regression  
 
 ## Author: **Julian Griffin**  
 
@@ -76,10 +76,3 @@ This project explores the relationship between **song popularity** and various a
    - Use **machine learning** methods like neural networks for deeper insights.  
 
 ---
-
-## 🛠 **How to Use**  
-
-1. **Clone Repository** 🖥️  
-   ```bash
-   git clone https://github.com/your_username/spotify-popularity-analysis.git
-   cd spotify-popularity-analysis
