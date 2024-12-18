@@ -3,7 +3,11 @@
 ## Author: **Julian Griffin**
 
 ### 🚀 **Overview**  
-This project explores the relationship between **song popularity** and various audio characteristics using a dataset provided by Professor Kelly Ramsay (York University). The analysis utilizes **multiple linear regression** to identify significant predictors of popularity and assesses the assumptions necessary for model validity. By understanding these relationships, this analysis provides insights that can help industry stakeholders improve song performance and predict future hits.
+So, here's the deal: I was given a dataset of Spotify songs, and instead of just running some basic analysis, I decided to turn it into my own little musical adventure. The question I started with? What actually makes a song popular on Spotify? Because, let’s be real—there are songs out there that get way too many streams (you know the ones), and then there are songs that deserve the spotlight but are stuck with zero plays. What's the deal with that?
+
+At first, I thought I’d just plug in some numbers and call it a day. But then I realized I was diving into a world where songs have hidden personalities—danceability, energy, tempo… all that good stuff. I wanted to know if these features could actually predict a song’s popularity. I mean, if I can figure out the secret sauce behind a viral hit, I’ll be ready for the next big music trend, right?
+
+As I worked through the math, I started realizing that some of the things we think makes a "good" song might not be what makes it popular. Through Formidable Formulas, Nebulous Numbers, and Enigmatic Equations I embarked on an enjoyable journey into understanding what makes songs tick—and maybe, just maybe, uncovering some of the magic behind the Spotify algorithm.
 
 ---
 
