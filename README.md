@@ -53,7 +53,8 @@ head(spotify)
 - **Non-significant Predictors**: 
   - `duration_ms` and `liveness` were not found to be significant predictors.
 
----
+<br>
+<br>
 
 🔄 **2.2: Multicollinearity Check**  
 We used the **Variance Inflation Factor (VIF)** to check for multicollinearity in our predictors. High VIF values suggest some predictors are highly correlated with others, potentially distorting the model.  
@@ -71,8 +72,8 @@ library(car)
 vif_values <- vif(model_full)
 print(vif_values)
 ```
-
----
+<br>
+<br>
 
 🔧 **2.3: Refitting the Model**  
 After addressing multicollinearity, we refitted the model by **excluding acousticness** from the predictors. This better improved the model’s stability like hypothesized.  
@@ -84,12 +85,31 @@ After addressing multicollinearity, we refitted the model by **excluding acousti
 ---
 
 ### **3. Assumption Checks**  
-🔍 Analyzed residuals to ensure the model adhered to assumptions:  
+
+🔍 Moving on, we analyzed the residuals to ensure the model adhered to assumptions:  
 - **Normality**: Evaluated with Q-Q plots and histograms.  
 - **Homoscedasticity**: Assessed with residuals vs. fitted plots.  
 - **Linearity**: Verified visually through scatter plots.  
 
-✅ Filtering the data and refining the model corrected assumption violations, producing a more reliable analysis.  
+💡 **Key Findings**:  
+- **Normality Violation**: Residuals were skewed, suggesting a violation of the normality assumption.  
+- **Heteroscedasticity**: The funnel shape in the residuals vs. fitted plot suggested heteroscedasticity.  
+- **Linearity**: No major issues were detected in the linearity assumption, but further refinement was necessary for normality and homoscedasticity.
+
+Example of code used for plot analysis:
+```R
+# Q-Q plot for residuals to check normality
+qqnorm(residuals(model_refit))
+qqline(residuals(model_refit), col = "red")
+
+# Histogram of residuals
+hist(residuals(model_refit), col = "green", main = "Histogram of Residuals", xlab = "Residuals")
+
+# Residuals vs Fitted plot to check homoscedasticity and linearity
+plot(fitted(model_refit), rstudent(model_refit), 
+     main = "Residuals vs Fitted Values", xlab = "Fitted Values", ylab = "Residuals")
+abline(h = 0, col = "red")
+```
 
 ---
 
