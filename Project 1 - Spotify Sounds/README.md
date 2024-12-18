@@ -46,9 +46,9 @@ head(spotify)
 ### **2. Model Development**
 
 🔨 **2.1: Initial Model Fit**  
-- Created a **full regression model** with all features.
+- Created a **full regression model** with all features:
 
-![Insert summer output image here](path_to_your_image) 
+<img src="../Media/SS1.png" alt="Regression Summary" width="400">
 
 💡 **Key Findings**:  
 - **Model Fit**: The R² value was low (~1%), meaning there’s a large amount of unexplained variability in popularity.  
@@ -197,11 +197,14 @@ cat("Proportion of influential points:", influential_points * 100, "%\n")
 
 But hey, progress is progress. We tackled multicollinearity, kicked out zero-popularity songs, and fixed assumption violations like pros. And for those **high-leverage points**? Only **7%** were present, and none of them caused any drama — they were just chill vibes all around.
 
-![Insert residual analysis output image here](path_to_your_image)  
+<br>
+
+
+<img src="../Media/SS4.jpeg" alt="Brain Moving Forward" width="400">
 
 ---
 
-### **8. Future Recommendations**:  **  
+### **8. Future Recommendations**:
 
 ⚠️ Even with all the tweaks and fixes, there’s still a ton of variability in popularity that the model couldn’t explain. This screams for **new predictors** or maybe even a fresh modeling approach. Future analyses could dive into external factors like **marketing strategies** or **listener demographics** to level up the predictive power and truly crack the code on what makes a song a hit.  
 
