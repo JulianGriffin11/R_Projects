@@ -19,41 +19,69 @@ As I worked through the math, I started realizing that some of the things we thi
 
 ---
 
-## 🔧 **Methodology**  
+## 🔧 **Methodology** (Parts 1-6) 
 
 ### **1. Data Preparation**  
-📊 The dataset includes features such as:  
-- `duration_ms`  
-- `danceability`  
-- `energy`  
-- `acousticness`  
-- `instrumentalness`  
-- `liveness`  
-- `tempo`  
 
-💡 **Initial Exploration:**  
-- Identified issues with **multicollinearity** and a high number of **zero-popularity** songs that skewed the data.
+📊 **Covariates Featured**:  
+- `duration_ms`, `danceability`, `energy`, `acousticness`, `instrumentalness`, `liveness`, `tempo`  
+
+💡 **Initial Steps**:  
+- The first step was to **import** the data and ensure everything was loading into R properly. We set the working directory and loaded the dataset using `read.csv()`. Afterward, we previewed the data with the `head()` function to get a glimpse of the first few rows and check the structure.
+
+Example of code used:
+```R
+setwd("/Users/juliangriffin/Desktop/R_Projects_Local/R_Projects")
+spotify <- read.csv("spotify_data.csv")
+head(spotify)
+```
+
+---
 
 ### **2. Model Development**  
-- 🛠 **Initial Model:**  
-  - Using all features resulted in a **low R² (~1%)**, indicating significant unexplained variability in predicting popularity.  
-- 🔧 **Refinement:**  
-  - Removed `acousticness` due to high **Variance Inflation Factor (VIF)**, addressing multicollinearity.  
-- 🧹 **Filtered Model:**  
-  - Excluded zero-popularity songs to improve **normality** and **homoscedasticity** in the residuals.
+- 🛠 **Initial Model**:  
+  - Created a **full regression model** with all features.  
+  - Result: **Low R² (~1%)**, highlighting unexplained variability.  
+- 🔧 **Refinement**:  
+  - Addressed multicollinearity by removing features with high **VIF** (e.g., `acousticness`).  
+  - Built a **filtered model** by excluding zero-popularity songs, improving fit and assumption adherence.  
+
+---
 
 ### **3. Assumption Checks**  
-🔍 Residual analysis to assess:  
-- 📈 **Normality**: Evaluated using a Q-Q plot and histogram of residuals.  
-- 📉 **Homoscedasticity**: Assessed through a residuals vs. fitted values plot.  
-- 📏 **Linearity**: Verified through visual inspection of scatter plots.  
+🔍 Analyzed residuals to ensure the model adhered to assumptions:  
+- **Normality**: Evaluated with Q-Q plots and histograms.  
+- **Homoscedasticity**: Assessed with residuals vs. fitted plots.  
+- **Linearity**: Verified visually through scatter plots.  
 
-✅ **Improvements:**  
-- The filtering and refinement of the model corrected most assumption violations and led to a better-fitting model.
+✅ Filtering the data and refining the model corrected assumption violations, producing a more reliable analysis.  
 
-### **4. Outlier and Influence Analysis**  
-- 🔺 **High-Leverage Points:**  
-  - Approximately **7%** of observations were identified as high-leverage, but none of these observations excessively influenced the model (Cook’s distance < 1).  
+---
+
+### **4. Outliers and Influence Analysis**  
+- 🔺 **High-Leverage Points**:  
+  - Around **7%** of observations were high-leverage but did not overly influence the model (Cook’s distance < 1).  
+- 🔍 **Impact on Results**:  
+  - Adjusted the model to limit outlier effects, further stabilizing predictions.  
+
+---
+
+### **5. Model Refinement**  
+🔧 Built a reduced model excluding weaker predictors (e.g., `liveness` and `duration_ms`), resulting in:  
+- Improved homoscedasticity and residual distribution.  
+- Enhanced interpretability with fewer variables while maintaining significance.  
+
+---
+
+### **6. Results**  
+**Key Insights**:  
+- ✅ `Danceability`: Positive impact on popularity.  
+- ❌ `Energy`, `acousticness`, `instrumentalness`: Negative impacts on popularity.  
+- Refined model assumptions improved, but most variability remains unexplained.  
+
+**Model Takeaways**:  
+- Refinement reduced multicollinearity and improved residual behaviour.  
+- Explained only a small fraction of the variability in song popularity, suggesting additional factors are at play.  
 
 ---
 
