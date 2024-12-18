@@ -3,25 +3,23 @@
 ## Author: **Julian Griffin**
 
 ### 🚀 **Overview**  
-So, here's the deal: I was given a dataset of Spotify songs, and instead of just running some basic analysis, I decided to turn it into my own little musical adventure. The question I started with? What actually makes a song popular on Spotify? Because, let’s be real—there are songs out there that get way too many streams (you know the ones), and then there are songs that deserve the spotlight but are stuck with zero plays. What's the deal with that?
+&nbsp; So, here's the deal: I was given a dataset of Spotify songs, and instead of just running some basic analysis, I decided to turn it into my own little musical adventure. The question I started with? What actually makes a song popular on Spotify? At first, I thought I’d just plug in some numbers and call it a day. But then I realized I was diving into a world where songs have hidden personalities—danceability, energy, tempo… all that good stuff. I wanted to know if these features could actually predict a song’s popularity. I mean, if I can figure out the secret sauce behind a viral hit, OMG?
 
-At first, I thought I’d just plug in some numbers and call it a day. But then I realized I was diving into a world where songs have hidden personalities—danceability, energy, tempo… all that good stuff. I wanted to know if these features could actually predict a song’s popularity. I mean, if I can figure out the secret sauce behind a viral hit, I’ll be ready for the next big music trend, right?
-
-As I worked through the math, I started realizing that some of the things we think makes a "good" song might not be what makes it popular. Through Formidable Formulas, Nebulous Numbers, and Enigmatic Equations I embarked on an enjoyable journey into understanding what makes songs tick—and maybe, just maybe, uncovering some of the magic behind the Spotify algorithm.
+&nbsp; As I worked through the math, I started realizing that some of the things I thought makes a "good" song might not be what makes it popular. Through Formidable Formulas, Nebulous Numbers, and Enigmatic Equations I embarked on a mathmatical journey into understanding what makes songs tick—and maybe, just maybe, uncovering some of the magic behind the Spotify algorithm.
 
 ---
 
 ## 🎯 **Objectives**  
 1. 🕵️‍♂️ Understand the factors influencing **song popularity**.  
 2. 🔍 Identify **significant predictors** of popularity using linear regression.  
-3. 🔄 Address **multicollinearity** and refine the model for better accuracy.  
-4. ✅ Ensure **model assumptions** (normality, homoscedasticity, linearity) are met.  
+3. ✅ Ensure **model assumptions** (normality, homoscedasticity, linearity) are met.
+4. 🔄 Refine the model for better accuracy.   
 
 ---
 
 ## 🛠 **Skills and Tools**  
 - **Programming Language:** R  
-- **Libraries:** `ggplot2`, `dplyr`, `lm`, `car`, `ggfortify`, etc.  
+- **Libraries:** `ggplot2`, `lm`, `car`, etc.  
 - **Skills Demonstrated:** Data wrangling, linear regression analysis, model diagnostics, hypothesis testing, residual analysis.
 
 ---
