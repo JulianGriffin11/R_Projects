@@ -89,12 +89,7 @@ After addressing multicollinearity, we refitted the model by **excluding acousti
 🔍 Moving on, we analyzed the residuals to ensure the model adhered to assumptions:  
 - **Normality**: Evaluated with Q-Q plots and histograms.  
 - **Homoscedasticity**: Assessed with residuals vs. fitted plots.  
-- **Linearity**: Verified visually through scatter plots.  
-
-💡 **Key Findings**:  
-- **Normality Violation**: Residuals were skewed, suggesting a violation of the normality assumption.  
-- **Heteroscedasticity**: The funnel shape in the residuals vs. fitted plot suggested heteroscedasticity.  
-- **Linearity**: No major issues were detected in the linearity assumption, but further refinement was necessary for normality and homoscedasticity.
+- **Linearity**: Verified visually through scatter plots.
 
 Example of code used for plot analysis:
 ```R
@@ -110,21 +105,34 @@ plot(fitted(model_refit), rstudent(model_refit),
      main = "Residuals vs Fitted Values", xlab = "Fitted Values", ylab = "Residuals")
 abline(h = 0, col = "red")
 ```
+<br>
+
+![Insert residual analysis output image here](path_to_your_image)  
+![Insert residual analysis output image here](path_to_your_image) 
+
+<br>
+
+💡 **Key Findings**:  
+- **Normality Violation**: Residuals were skewed, suggesting a violation of the normality assumption.  
+- **Heteroscedasticity**: The funnel shape in the residuals vs. fitted plot suggested heteroscedasticity.  
+- **Linearity**: No major issues were detected in the linearity assumption, but further refinement was necessary for normality and homoscedasticity.
+
+✅ Next Steps: To filter the data to correct the assumption errors
 
 ---
 
-### **4. Outliers and Influence Analysis**  
+### **4. Model Refinement**  
+🔧 Built a reduced model excluding weaker predictors (e.g., `liveness` and `duration_ms`), resulting in:  
+- Improved homoscedasticity and residual distribution.  
+- Enhanced interpretability with fewer variables while maintaining significance.  
+
+---
+
+### **5. Outliers and Influence Analysis**  
 - 🔺 **High-Leverage Points**:  
   - Around **7%** of observations were high-leverage but did not overly influence the model (Cook’s distance < 1).  
 - 🔍 **Impact on Results**:  
   - Adjusted the model to limit outlier effects, further stabilizing predictions.  
-
----
-
-### **5. Model Refinement**  
-🔧 Built a reduced model excluding weaker predictors (e.g., `liveness` and `duration_ms`), resulting in:  
-- Improved homoscedasticity and residual distribution.  
-- Enhanced interpretability with fewer variables while maintaining significance.  
 
 ---
 
