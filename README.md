@@ -1,4 +1,4 @@
-# 🎵 Spotify Symphony: A Linear Regression Approach on Spotify Data
+# 🎵 [Spotify Symphony: A Linear Regression Approach on Spotify Data](./Spotify%20Sounds.R)
 
 ## Author: **Julian Griffin**
 
@@ -199,6 +199,8 @@ cat("Proportion of influential points:", influential_points * 100, "%\n")
 
 But hey, progress is progress. We tackled multicollinearity, kicked out zero-popularity songs, and fixed assumption violations like pros. And for those **high-leverage points**? Only **7%** were present, and none of them caused any drama — they were just chill vibes all around.
 
+![Insert residual analysis output image here](path_to_your_image)  
+
 ---
 
 ### **8. Future Recommendations**:  **  
@@ -217,4 +219,10 @@ But hey, progress is progress. We tackled multicollinearity, kicked out zero-pop
    - Experiment with **machine learning** models uncover deeper patterns and improve predictions.
 
 ---
+### 📂 Access the R-File  
+
+Click [here](./Spotify%20Sounds.R) to explore the **Spotify Symphony** code in more detail.  
+
+
+(Note: please download the spotify_data.csv as well and make sure the working directory is set)
 
