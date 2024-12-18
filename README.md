@@ -38,13 +38,48 @@ head(spotify)
 
 ---
 
-### **2. Model Development**  
-- 🛠 **Initial Model**:  
-  - Created a **full regression model** with all features.  
-  - Result: **Low R² (~1%)**, highlighting unexplained variability.  
-- 🔧 **Refinement**:  
-  - Addressed multicollinearity by removing features with high **VIF** (e.g., `acousticness`).  
-  - Built a **filtered model** by excluding zero-popularity songs, improving fit and assumption adherence.  
+### **2. Model Development**
+
+🔨 **2.1: Initial Model Fit**  
+- Created a **full regression model** with all features.
+
+![Insert summer output image here](path_to_your_image) 
+
+💡 **Key Findings**:  
+- **Model Fit**: The R² value was low (~1%), meaning there’s a large amount of unexplained variability in popularity.  
+- **Significant Predictors**: 
+  - **Danceability** positively impacts popularity.
+  - **Energy**, **acousticness**, and **instrumentalness** have a **negative effect** on popularity.
+- **Non-significant Predictors**: 
+  - `duration_ms` and `liveness` were not found to be significant predictors.
+
+---
+
+🔄 **2.2: Multicollinearity Check**  
+We used the **Variance Inflation Factor (VIF)** to check for multicollinearity in our predictors. High VIF values suggest some predictors are highly correlated with others, potentially distorting the model.  
+
+💡 **Key Findings**:  
+- **Acousticness** and **energy** exhibited **high VIF values**, indicating potential multicollinearity between the variables.
+- **Next Steps**: We decided to remove **acousticness** from the model to reduce multicollinearity and improve model stability.
+
+Example of code used to check VIF:
+```R
+# Load the 'car' package for VIF calculation
+library(car)
+
+# Check for multicollinearity using VIF
+vif_values <- vif(model_full)
+print(vif_values)
+```
+
+---
+
+🔧 **2.3: Refitting the Model**  
+After addressing multicollinearity, we refitted the model by **excluding acousticness** from the predictors. This better improved the model’s stability like hypothesized.  
+
+💡 **Key Findings**:  
+- **Refined Model**: Removing **acousticness** lowered VIF values and improved the model's stability.
+- **Energy** now showed a stronger effect on popularity without the interference from **acousticness**. 
 
 ---
 
