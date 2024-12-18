@@ -19,7 +19,14 @@ As I worked through the math, I started realizing that some of the things we thi
 
 ---
 
-## 🔧 **Methodology** (Parts 1-6) 
+## 🛠 **Skills and Tools**  
+- **Programming Language:** R  
+- **Libraries:** `ggplot2`, `dplyr`, `lm`, `car`, `ggfortify`, etc.  
+- **Skills Demonstrated:** Data wrangling, linear regression analysis, model diagnostics, hypothesis testing, residual analysis.
+
+---
+
+## 🔧 **Methodology** (Parts 1-8) 
 
 ### **1. Data Preparation**  
 
@@ -113,7 +120,7 @@ abline(h = 0, col = "red")
 <br>
 
 💡 **Key Findings**:  
-- **Normality Violation**: Residuals were skewed, suggesting a violation of the normality assumption.  
+- **Normality Violation**: There was an unusually large amount of zero popularity scores in the histogram suggesting a violation in the normality assumption.  
 - **Heteroscedasticity**: The funnel shape in the residuals vs. fitted plot suggested heteroscedasticity.  
 - **Linearity**: No major issues were detected in the linearity assumption, but further refinement was necessary for normality and homoscedasticity.
 
@@ -122,48 +129,83 @@ abline(h = 0, col = "red")
 ---
 
 ### **4. Model Refinement**  
-🔧 Built a reduced model excluding weaker predictors (e.g., `liveness` and `duration_ms`), resulting in:  
-- Improved homoscedasticity and residual distribution.  
-- Enhanced interpretability with fewer variables while maintaining significance.  
+
+🔧 Later, we wanted to adjust the data to better fit the assumptions.  
+
+🔍 **Adjustments**:  
+1. **Zero-Popularity Songs**: We excluded songs with zero popularity, which significantly improved the normality assumption reducing data noise.  
+2. **Problematic Predictors**: Removed weaker predictors such as `liveness`, `instrumentalness`, and `duration_ms`, leading to better homoscedasticity and a more interpretable model.
+
+💡 **Key Findings**: 
+**Model Refinement Results**:  
+  - The **homoscedasticity assumption** was improved, as seen in the residuals.
+  - The **residuals** now appear more evenly distributed around zero, supporting the **linearity** assumption.
+
+Example of code used for model refinement:
+```R
+# Exclude zero-popularity songs
+spotify_filtered <- subset(spotify, popularity > 0)
+
+# Refit model on filtered data
+model_filtered <- lm(popularity ~ duration_ms + danceability + energy + acousticness + instrumentalness + liveness + tempo, data = spotify_filtered)
+summary(model_filtered)
+
+# Exclude problematic predictors for improved homoscedasticity
+model_reduced <- lm(popularity ~ danceability + energy + tempo, data = spotify_filtered)
+summary(model_reduced)
+```
 
 ---
 
 ### **5. Outliers and Influence Analysis**  
+
+🔍 To ensure the model's robustness, we analyzed outliers and influential observations.  
+
+Example of code used for this analysis:
+```R
+# Calculate leverage points
+hat_values <- hatvalues(model_reduced)
+high_leverage <- mean(hat_values > (2 * length(coef(model_reduced)) / nrow(spotify_filtered)))
+cat("High-leverage observations:", high_leverage * 100, "%\n")
+
+# Identify influential points using Cook's Distance
+cooks_distance <- cooks.distance(model_reduced)
+influential_points <- mean(cooks_distance > 1)
+cat("Proportion of influential points:", influential_points * 100, "%\n")
+```
+
+💡 **Key Findings**:  
 - 🔺 **High-Leverage Points**:  
-  - Around **7%** of observations were high-leverage but did not overly influence the model (Cook’s distance < 1).  
+  - Approximately **7%** of the observations had high leverage, as determined by hat values.  
+  - Despite this, none of the observations excessively influenced the model, with Cook's distance remaining below 1.  
 - 🔍 **Impact on Results**:  
-  - Adjusted the model to limit outlier effects, further stabilizing predictions.  
+  - The analysis confirmed that no single observation was disproportionately affecting the model's coefficients.  
+  - As a result, the model remained stable, and predictions were not distorted by outliers or influential data points.
 
 ---
 
-### **6. Results**  
-**Key Insights**:  
+### **6. Overall Results**  
+**Biggest Takeaways**:  
 - ✅ `Danceability`: Positive impact on popularity.  
 - ❌ `Energy`, `acousticness`, `instrumentalness`: Negative impacts on popularity.  
-- Refined model assumptions improved, but most variability remains unexplained.  
-
-**Model Takeaways**:  
-- Refinement reduced multicollinearity and improved residual behaviour.  
-- Explained only a small fraction of the variability in song popularity, suggesting additional factors are at play.  
+- 🔮 Refined model assumptions improved.
+- 💢 Most variability remains unexplained.  
 
 ---
 
-## 📊 **Results**  
+### **7. Conclusion**  
+ 
+🎵 Turns out, **danceability** is the real MVP of song popularity, while **energy**, **acousticness**, and **instrumentalness** were more like party poopers, dragging down the vibe. Our first crack at the model only scratched the surface, explaining about **1% of the variability** in popularity, and even after some fine-tuning, we’re still only at **0.5%**.  
 
-- **Significant Predictors:**  
-  - ✅ `Danceability` has a **positive impact** on song popularity.  
-  - ❌ `Energy`, `acousticness`, and `instrumentalness` show a **negative impact** on popularity.  
-- **Refined Model Performance:**  
-  - The refined model showed improvements in model assumptions with a better distribution of residuals and reduced multicollinearity.
+But hey, progress is progress. We tackled multicollinearity, kicked out zero-popularity songs, and fixed assumption violations like pros. And for those **high-leverage points**? Only **7%** were present, and none of them caused any drama — they were just chill vibes all around.
 
 ---
 
-## 🏁 **Conclusion**  
-✨ The refined model explains song popularity trends better, but **most of the variability remains unexplained**, suggesting there are additional, unexplored factors affecting popularity.
+### **8. Future Recommendations**:  **  
 
----
+⚠️ Even with all the tweaks and fixes, there’s still a ton of variability in popularity that the model couldn’t explain. This screams for **new predictors** or maybe even a fresh modeling approach. Future analyses could dive into external factors like **marketing strategies** or **listener demographics** to level up the predictive power and truly crack the code on what makes a song a hit.  
 
-## 🔮 **Recommendations**  
+🚀 To point us in the right direction I recommend the following moving forward:
 
 1. **Include More Covariates** 📂  
    - Add features such as **song genre**, **release year**, and **artist popularity** for more comprehensive predictions.  
@@ -172,19 +214,7 @@ abline(h = 0, col = "red")
    - Explore how variables like `danceability` and `energy` interact and contribute to song popularity when combined.
 
 3. **Try Advanced Models** 🤖  
-   - Experiment with **machine learning** models such as decision trees, random forests, or neural networks to uncover deeper patterns and improve predictions.
+   - Experiment with **machine learning** models uncover deeper patterns and improve predictions.
 
 ---
-
-## 🛠 **Skills and Tools**  
-- **Programming Language:** R  
-- **Libraries:** `ggplot2`, `dplyr`, `lm`, `car`, `ggfortify`, etc.  
-- **Skills Demonstrated:** Data wrangling, linear regression analysis, model diagnostics, hypothesis testing, residual analysis.
-
----
-
-## ⚙️ **Future Work**  
-- **Cross-validation:** To ensure the model generalizes well to new data.  
-- **Hyperparameter tuning:** Use techniques like grid search or random search to fine-tune the model parameters for optimal performance.  
-- **Time-series analysis:** If predicting song popularity over time, consider time-series models to account for trends and seasonality.
 
