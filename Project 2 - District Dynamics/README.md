@@ -1,6 +1,6 @@
 # 🏙️ **District Dynamics** 🏙️
 
-<img src="../Media/DD_Soon.jpg" alt="Visual of Spending Analysis" width="55%" />
+<img src="../Media/DD_Soon.jpg" alt="Visual of Spending Analysis" width="35%" />
 
 ## Introduction  
 
