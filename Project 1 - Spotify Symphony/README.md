@@ -117,5 +117,5 @@ cat("High-leverage observations:", high_leverage * 100, "%\n")
 Click [here](./Spotify%20Symphony.R) to explore the **Spotify Symphony** code in more detail.  
 
 
-(Note: please download the spotify_data.csv as well and make sure the working directory is set)
+(Note: please download the **spotify_data.csv** as well and make sure the **working directory** is set to your local system)
 
