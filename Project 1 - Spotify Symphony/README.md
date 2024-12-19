@@ -1,5 +1,7 @@
 # 🎵 [Spotify Symphony: A Linear Regression Approach on Spotify Data](./Spotify%20Sounds.R)
 
+<img src="../Media/SS_Run.gif" alt="Visual of Code" width="75%" />
+
 ## Author: **Julian Griffin**
 
 ### 🚀 **Overview**  
@@ -112,13 +114,12 @@ abline(h = 0, col = "red")
 ```
 <br>
 
-![Insert residual analysis output image here](path_to_your_image)  
-![Insert residual analysis output image here](path_to_your_image) 
+<img src="../Media/SS_Hist1.png" alt="Histogram Visual" width="600" />
 
 <br>
 
 💡 **Key Findings**:  
-- **Normality Violation**: There was an unusually large amount of zero popularity scores in the histogram suggesting a violation in the normality assumption.  
+- **Normality Violation**: In the residual histogram plot (above), there was an unusually large amount of data at x = -30 suggesting a violation in the normality assumption. This prompted the need for further exploration.
 - **Heteroscedasticity**: The funnel shape in the residuals vs. fitted plot suggested heteroscedasticity.  
 - **Linearity**: No major issues were detected in the linearity assumption, but further refinement was necessary for normality and homoscedasticity.
 
@@ -130,12 +131,37 @@ abline(h = 0, col = "red")
 
 🔧 Later, we wanted to adjust the data to better fit the assumptions.  
 
-🔍 **Adjustments**:  
-1. **Zero-Popularity Songs**: We excluded songs with zero popularity, which significantly improved the normality assumption reducing data noise.  
-2. **Problematic Predictors**: Removed weaker predictors such as `liveness`, `instrumentalness`, and `duration_ms`, leading to better homoscedasticity and a more interpretable model.
+🔄 **4.1: Exploration of Histogram Discrepancy**  
+- We first plotted the popularity scores in a histogram (below) and noticed a large amount of zero values, which may have been affecting our residual plot.
 
-💡 **Key Findings**: 
-**Model Refinement Results**:  
+<img src="../Media/SS_Hist2.png" alt="Histogram Visual" width="500"/>
+
+🔍 **Adjustment**:   
+1. **Zero-Popularity Songs**: We excluded songs with zero popularity, which significantly improved the normality assumption reducing data noise.
+
+<br>
+<br>
+
+🔄 **4.2: Address Homoscedasticity**  
+- Next we checked each covariate's residual errors to visual see which were problematic for our assumptions check.
+- View examples below, such that a funnel shape pattern is recongizable in the first plot (indicating a violation in Homoscedasticity) vs the second plot with no recongizable pattern (the data is distributed randomly around 0).
+
+
+<p align="center">
+  <img src="../Media/SS_Duration.png" alt="Duration Res" width="500"/>
+  <img src="../Media/SS_Danceability.png" alt="Dance Res" width="500"/>
+</p>
+
+🔍 **Adjustment**:  
+
+2. **Problematic Predictors**: Removed weaker predictors such as `liveness`, `instrumentalness`, and `duration_ms`, leading to better homoscedasticity and a more interpretable model.  
+
+<br>
+<br>
+
+🔄 **4.3: Re-check Assumptions**  
+
+💡 After both of the changes in 4.1 and 4.2 we reported the following: 
   - The **homoscedasticity assumption** was improved, as seen in the residuals.
   - The **residuals** now appear more evenly distributed around zero, supporting the **linearity** assumption.
 
@@ -200,7 +226,7 @@ But hey, progress is progress. We tackled multicollinearity, kicked out zero-pop
 <br>
 
 
-<img src="../Media/SS4.jpeg" alt="Brain Moving Forward" width="400">
+<img src="../Media/SS12.jpeg" alt="Brain Moving Forward" width="400">
 
 ---
 
