@@ -10,11 +10,11 @@
 # 1. Data Preparation
 # ----------------------------------------------------------------------------------------
 
-# Set working directory and load data
-setwd("/Users/juliangriffin/Desktop/R_Projects_Local/R_Projects/Project 1 - Spotify Sounds")
+# Set working directory and assign name to data
+setwd("/Users/juliangriffin/Desktop/R_Projects_Local/R_Projects/Project 1 - Spotify Symphony")
 spotify <- read.csv("spotify_data.csv")
 
-# Preview data
+# Preview data to see if everything loaded properly
 head(spotify)
 
 # ----------------------------------------------------------------------------------------
@@ -29,19 +29,22 @@ model_full <- lm(popularity ~ duration_ms + danceability + energy + acousticness
 summary(model_full)
 
 ### Key Findings:
-# - **Model Fit:** Low R^2 (~1%) indicates large amount of unexplained variability in popularity.
-# - **Significant Predictors:** Danceability positively impacts popularity while energy, acousticness, and instrumentalness have negative effects.
-# - **Non-significant Predictors:** Duration_ms and liveness.
+# - Model Fit: Low R^2 (~1%) indicates large amount of unexplained variability in popularity.
+# - Significant Predictors: Danceability positively impacts popularity while energy, acousticness, and instrumentalness have negative effects.
+# - Non-significant Predictors: Duration_ms and liveness.
 
 
 ## 2.2 Multicollinearity Check
-# Check for multicollinearity using Variance Inflation Factor (VIF)
+# Install the 'car' package if not already installed
+if (!require(car)) install.packages("car")
 library(car)
+
+# Check for multicollinearity using Variance Inflation Factor (VIF)
 vif_values <- vif(model_full)
 print(vif_values)
 
 ### Key Findings:
-# - High VIF values for acousticness and energy suggests collinearity.
+# - High VIF values for acousticness and energy suggests collinearity between covariates.
 # - Next step: Remove acousticness to refine the model and confirm the hypothesis
 
 
@@ -61,7 +64,6 @@ vif(model_refit)
 
 ## 3.1 Residual Analysis
 # Check assumptions: normality, homoscedasticity, linearity
-par(mfrow = c(1, 3))  # Multiple plots in one view
 
 # Q-Q Plot for residuals
 qqnorm(residuals(model_refit))
@@ -78,32 +80,80 @@ abline(h = 0, col = "red")
 ### Key Findings:
 # - Residuals are skewed suggesting normality assumption violated.
 # - Funnel shape in residuals vs. fitted plot suggests heteroscedasticity.
-# - Large amount of data at the 0 value, indicating the need for further exploration
+# - We notice a large amount of data at x = -30, indicating the need for further exploration
 
 # ----------------------------------------------------------------------------------------
 # 4. Model Refinement
 # ----------------------------------------------------------------------------------------
 
-## 4.1 Exclude Zero-Popularity Songs
+## 4.1 Exploration of Histogram Discrepancy
+# Create a histogram of the popularity scores
+hist(spotify$popularity, 
+     col = "blue", 
+     main = "Histogram of Popularity Scores", 
+     xlab = "Popularity", 
+     breaks = 30)
+
+## Results: we notice an unusually large amount of data at x=0. Likely a problem when the popularity scores are 0.
+
+# Towards fixing the problem, filter the data for non-zero popularity scores
 spotify_filtered <- subset(spotify, popularity > 0)
 
-# Refit model on filtered data
-model_filtered <- lm(popularity ~ duration_ms + danceability + energy + acousticness + instrumentalness + liveness + tempo, data = spotify_filtered)
+# Refit model on filtered data (no zero popularity songs)
+model_filtered <- lm(popularity ~ duration_ms + danceability + energy + instrumentalness + liveness + tempo, data = spotify_filtered)
 summary(model_filtered)
 
 
-## 4.2 Address Problematic Predictors
+## 4.2 Address Homoscedasticity
+# Our next step is to check each covariate's residual errors to visual see which are problematic for our assumptions
+
+# Install and load necessary libraries
+if (!require(ggplot2)) install.packages("ggplot2")
+library(ggplot2)
+
+# Create a new data frame for studentized residuals and fitted values
+spotify_filtered$residuals <- rstudent(model_filtered)
+spotify_filtered$fitted <- fitted(model_filtered)
+
+# List of covariates
+covariates <- c("duration_ms", "danceability", "energy", "instrumentalness", "liveness", "tempo")
+
+# Plot studentized residuals against each covariate
+for (covariate in covariates) {
+  plot(spotify_filtered[[covariate]], spotify_filtered$residuals,
+       xlab = covariate,
+       ylab = "Studentized Residuals",
+       main = paste("Studentized Residuals vs.", covariate))
+  abline(h = 0, col = "red") 
+}
+
+## Results: The covariates liveness, instrumentalness, and duration_ms show noticeable patterns in their residual plots.
+# This indicates these variables are affecting our assumptions negatively
+
+
+## 4.3 Re-check Assumptions
 # Exclude liveness, instrumentalness, and duration_ms for improved homoscedasticity
 model_reduced <- lm(popularity ~ danceability + energy + tempo, data = spotify_filtered)
-summary(model_reduced)
+
+# Q-Q Plot for residuals
+qqnorm(residuals(model_reduced))
+qqline(residuals(model_reduced), col = "red")
+
+# Histogram of residuals
+hist(residuals(model_reduced), col = "green", main = "Histogram of Residuals", xlab = "Residuals")
+
+# Residuals vs Fitted Values
+plot(fitted(model_reduced), rstudent(model_reduced), 
+     main = "Residuals vs Fitted Values", xlab = "Fitted Values", ylab = "Residuals")
+abline(h = 0, col = "red")
 
 ### Key Findings:
-# - Homoscedasticity assumption corrected with reduced funnel effect.
+# - Homoscedasticity assumption corrected with reduced funnel effect by reducing covariates
 # - The removal of zero popularity values significantly improved the normality assumption, making the distribution more normal
 # - The residuals appear evenly distributed around zero, which supports the linearity assumption.
 
 # ----------------------------------------------------------------------------------------
-# 5. Outlier and Influence Analysis
+# 5. Outliers and Influence Analysis
 # ----------------------------------------------------------------------------------------
 
 ## 5.1 Leverage Points
@@ -122,7 +172,13 @@ cat("Proportion of influential points:", influential_points * 100, "%\n")
 # - This means no single observation is disproportionately affecting the model's coefficients
 
 # ----------------------------------------------------------------------------------------
-# 6. Conclusion and Recommendations
+# 6. Results
+# ----------------------------------------------------------------------------------------
+# 
+# - Please refer to the README file!
+#
+# ----------------------------------------------------------------------------------------
+# 7. Conclusion and Recommendations
 # ----------------------------------------------------------------------------------------
 
 ## Conclusion
@@ -142,4 +198,3 @@ cat("Proportion of influential points:", influential_points * 100, "%\n")
 #   3. Try Different Models: 
 #     - Experiment with advanced methods like neural networks for tackling the complexity of predicting song popularity 
 # ----------------------------------------------------------------------------------------
-
