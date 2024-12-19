@@ -40,7 +40,7 @@ Here you will find my **R-based data analysis** projects. Use the **links below*
 
 ### Notes: 
 - For each project, feel free to download the necessary data files (like `spotify_data.csv`) and run them on your local system.
-- Ensure your **working directory** is set correctly in the project file to avoid path issues.
+- Ensure your **working directory** is set correctly to avoid path issues.
   
 ---
 
