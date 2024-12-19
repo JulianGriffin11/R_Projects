@@ -10,7 +10,7 @@ This space is dedicated to showcasing my journey through various **R-based data 
 
 ## 🗂️ Projects
 
-### 1. [🎵 **Project 1 - Spotify Symphony** 🎵](./Spotify%20Symphony.R)  
+### 1. [🎵 **Project 1 - Spotify Symphony** 🎵](./Project%201%20-%20Spotify%20Symphony) 
 - **Summary**: This project dives into the world of Spotify data to uncover what drives song popularity. A linear regression model is built to explore relationships between various song attributes like danceability, energy, tempo, etc. 
 - **Skills Learned**:  
   - Linear regression analysis  
@@ -23,6 +23,18 @@ This space is dedicated to showcasing my journey through various **R-based data 
 
 <img src="./Media/SS_Run.gif" alt="Visual of Code Execution" width="60%" />
 
+### 2. [🏡 **Project 2 - District Dynamics: Coming Soon!** 🏡](./Project%202%20-%20District%20Dynamics)  
+- **Summary**: This project analyzes key housing data such as square footage, cost, and location to identify trends and detect outliers. I examine influential points to provide insights into the housing market.
+- **Skills Learned**:  
+  - Hypothesis Testing 
+  - Outlier Detection  
+  - Data Visualization
+- **Important Note**: This project is currently in progess 🚧!
+  
+
+<br>
+
+<img src="./Media/SS_Run.gif" alt="Visual of Code Execution" width="60%" />
 ---
 
 ### Notes: 
@@ -31,7 +43,7 @@ This space is dedicated to showcasing my journey through various **R-based data 
   
 ---
 
-✨ Click the heading links to dive deeper into each project! 🚀
+🚀 Click the heading links to dive deeper into each project! 🚀
 
 Yours in solutions,   
 **Julian Griffin :)**
