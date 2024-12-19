@@ -32,7 +32,7 @@ The `spotify_data.csv` includes information about Spotify songs, focusing on num
 - 🎸 **Acousticness**: A measure of how acoustic (non-electronic) a track sounds.  
 - 🎻 **Instrumentalness**: A score that predicts the likelihood of a track having no vocals.  
 - 🎤 **Liveness**: A measure of whether it feels like a live performance.  
-- 🎚️ **Tempo**: The speed of the track, measured in beats per minute (BPM).  
+- 🎚️ **Tempo**: The speed of the track, measured in beats per minute (BPM).
 
 ---
 
