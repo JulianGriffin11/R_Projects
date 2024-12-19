@@ -4,7 +4,7 @@ Welcome to my **R Projects** repository! 🎉
 
 This space is dedicated to showcasing my journey through various **R-based data analysis** projects. Use the **links below** to dive into each project and explore the code, results, and insights I’ve gained!
 
-<img src="./Media/r_projects_banner.jpeg" alt="R Projects Banner" width="200"/>
+<img src="./Media/R_pic.jpeg" alt="R Projects Banner" width="200"/>
 
 ---
 
