@@ -35,6 +35,7 @@ This space is dedicated to showcasing my **R-based data analysis** projects. Use
 <br>
 
 <img src="./Media/DD_Intro.gif" alt="Visual of Code Execution" width="60%" />
+
 ---
 
 ### Notes: 
