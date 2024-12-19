@@ -26,6 +26,21 @@
 
 ---
 
+## 📊 Data Overview  
+
+The `spotify_data.csv` includes information about Spotify songs, focusing on numerical characteristics that may influence song popularity. Below are the covariates analyzed:  
+
+- 🎵 **popularity**: A numerical score (0-100) indicating the song's popularity.  
+- ⏳ **duration_ms**: Length of the song in milliseconds.  
+- 💃 **danceability**: A measure of how suitable a track is for dancing (0-1).  
+- ⚡ **energy**: Intensity and activity of a track (0-1).  
+- 🎸 **acousticness**: Probability that the track is acoustic (0-1).  
+- 🎻 **instrumentalness**: Likelihood of the track being instrumental (0-1).  
+- 🎤 **liveness**: Presence of an audience in the recording (0-1).  
+- 🎚️ **tempo**: The speed or pace of the song, measured in beats per minute (BPM).
+
+---
+
 ## 🔧 **Methodology** (Parts 1-8) 
 
 ### **1. Data Preparation**  
