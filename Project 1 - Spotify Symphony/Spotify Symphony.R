@@ -6,11 +6,15 @@
 # Purpose: Explore the relationship between song popularity and its characteristics
 # Data Set: Provided by Kelly Ramsay
 
+# Important Note: Please set your own working directory as the one in the file is my own!
+
 # ----------------------------------------------------------------------------------------
 # 1. Data Preparation
 # ----------------------------------------------------------------------------------------
 
-# Set working directory and assign name to data
+# Please set your own working directory as the following is my own!
+
+# Set working directory and assign name to data set
 setwd("/Users/juliangriffin/Desktop/R_Projects_Local/R_Projects/Project 1 - Spotify Symphony")
 spotify <- read.csv("spotify_data.csv")
 
