@@ -1,12 +1,37 @@
-# 🎵 Coming soon!
+# 📊 R Projects
 
-<img src="../Media/SS_Run.gif" alt="Visual of Code" width="75%" />
-s.
+Welcome to my **R Projects** repository! 🎉  
+
+This space is dedicated to showcasing my journey through various **R-based data analysis** projects. Use the **links below** to dive into each project and explore the code, results, and insights I’ve gained!
+
+<img src="./Media/r_projects_banner.jpeg" alt="R Projects Banner" width="200"/>
 
 ---
-### 📂 Access the R-File  
 
-Click [here](./Spotify%20Symphony.R) to explore the **Spotify Symphony** code in more detail.  
+## 🗂️ Projects
 
+### 1. [🎵 **Project 1 - Spotify Symphony** 🎵](./Spotify%20Symphony.R)  
+- **Summary**: This project dives into the world of Spotify data to uncover what drives song popularity. A linear regression model is built to explore relationships between various song attributes like danceability, energy, tempo, etc. 
+- **Skills Learned**:  
+  - Linear regression analysis  
+  - Model diagnostics and assumption checks  
+  - Data wrangling and visualization using various library like
+- **Important Note**: Please make sure your working directory is set when running the file!
+  
 
-(Note: please download the spotify_data.csv as well and make sure the working directory is set)
+<br>
+
+<img src="./Media/SS_Run.gif" alt="Visual of Code Execution" width="60%" />
+
+---
+
+### Notes: 
+- For each project, feel free to download the necessary data files (like `spotify_data.csv`) and run them on your local system.
+- Ensure your **working directory** is set correctly in the project file to avoid path issues.
+  
+---
+
+✨ Click the heading links to dive deeper into each project! 🚀
+
+Yours in solutions,   
+**Julian Griffin :)**
