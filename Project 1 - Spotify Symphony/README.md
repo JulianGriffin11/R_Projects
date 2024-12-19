@@ -77,13 +77,21 @@ abline(h = 0, col = "red")
   - **Hat values** for leverage.  
   - **Cook’s distance** for influence.
 
+  Example of code used for this analysis:
+```R
+# Calculate leverage points using hat values
+hat_values <- hatvalues(model_reduced)
+high_leverage <- mean(hat_values > (2 * length(coef(model_reduced)) / nrow(spotify_filtered)))
+cat("High-leverage observations:", high_leverage * 100, "%\n")
+```
+
 ### **6. ✅ Overall Results**  
 - Summarized key findings:  
-  - 🎉 **Danceability** had a positive relationship on song popularity.  
-  - ❌ **Energy, acousticness**, and **instrumentalness** negatively affected popularity.
-  - 🔺 Approximately 7% of the data had high leverage
-  - 🔮 No single observation was disproportionately affecting the model's coefficients. 
-  - 📉 Most variability of the data remains **unexplained**.
+  - 🎉 **Danceability** had a positive relationship on song popularity.   
+  - ❌ **Energy, acousticness**, and **instrumentalness** negatively affected popularity.  
+  - 🔺 Approximately **7%** of the data had high leverage.    
+  - 🔮 No single observation was disproportionately affecting the model's coefficients.   
+  - 📉 Most variability of the data remains **unexplained**.  
 
 ---
 
@@ -93,7 +101,7 @@ abline(h = 0, col = "red")
 
 ---
 
-### **Future Recommendations**:
+### **Future Recommendations**
 
 ⚠️ Even with all the tweaks and fixes, there’s still a ton of variability in popularity that the model couldn’t explain.
 
