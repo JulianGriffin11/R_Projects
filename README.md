@@ -1,4 +1,4 @@
-# 🎵 [Spotify Symphony: A Linear Regression Approach on Spotify Data](./Spotify%20Sounds.R)
+# 🎵 [Spotify Symphony: A Linear Regression Approach on Spotify Data](./Spotify%20Symphony.R)
 
 <img src="../Media/SS_Run.gif" alt="Visual of Code" width="75%" />
 
@@ -263,7 +263,7 @@ But hey, progress is progress. We tackled multicollinearity, kicked out zero-pop
 ---
 ### 📂 Access the R-File  
 
-Click [here](./Spotify%20Sounds.R) to explore the **Spotify Symphony** code in more detail.  
+Click [here](./Spotify%20Symphony.R) to explore the **Spotify Symphony** code in more detail.  
 
 
 (Note: please download the spotify_data.csv as well and make sure the working directory is set)
