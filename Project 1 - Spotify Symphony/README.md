@@ -187,7 +187,7 @@ summary(model_reduced)
 
 Example of code used for this analysis:
 ```R
-# Calculate leverage points
+# Calculate leverage points using hat values
 hat_values <- hatvalues(model_reduced)
 high_leverage <- mean(hat_values > (2 * length(coef(model_reduced)) / nrow(spotify_filtered)))
 cat("High-leverage observations:", high_leverage * 100, "%\n")
