@@ -23,7 +23,7 @@ Here you will find my **R-based data analysis** projects. Use the **links below*
 
 <img src="./Media/SS_Run.gif" alt="Visual of Code Execution" width="60%" />
 
-### 2. [🏡 **Project 2 - District Dynamics: Coming Soon!** 🏡](./Project%202%20-%20District%20Dynamics)  
+### 2. [🏡 **Project 2 - District Dynamics: In Progress!** 🏡](./Project%202%20-%20District%20Dynamics)  
 - **Summary**: This project analyzes key housing data such as square footage, cost, and location to identify trends and detect outliers. I examine influential points to provide insights into the housing market.
 - **Skills Learned**:  
   - Hypothesis Testing 
