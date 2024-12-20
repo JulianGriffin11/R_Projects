@@ -29,7 +29,7 @@ Here you will find my **R-based data analysis** projects. Use the **links below*
   - Hypothesis Testing 
   - Outlier Detection  
   - Data Visualization
-- **Important Note**: This project is currently in progess 🚧!
+- **Important Note**: This project is currently in progress 🚧!
   
 
 <br>
