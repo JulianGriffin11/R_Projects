@@ -23,10 +23,12 @@ This project delves into housing market data, analyzing various factors such as 
 
 ---
 
-This project is **actively under development**, and more features, visualizations, and analysis will be coming soon. Stay tuned for updates!
-
-
-Feel free to come back when I am finished!  
+### 📚 **Other Information**:  
+- This project is **actively under development**, and more features, visualizations, and analysis will be coming soon. 
+- Stay tuned for updates!
+- Check out some of my other work:  
+  - [📊 SQL Projects](https://github.com/JulianGriffin11/SQL_Projects)  
+  - [📘 Excel Projects](https://github.com/JulianGriffin11/Excel_Projects)
 
 Talk soon,  
 **Julian Griffin**
