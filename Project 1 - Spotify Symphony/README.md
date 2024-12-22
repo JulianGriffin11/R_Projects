@@ -119,3 +119,9 @@ Click [here](./Spotify%20Symphony.R) to explore the **Spotify Symphony** code in
 
 (Note: please download the **spotify_data.csv** as well and make sure the **working directory** is set to your local system)
 
+---
+
+- Check out some of my other work:  
+  - [📊 SQL Projects](https://github.com/JulianGriffin11/SQL_Projects)  
+  - [📘 Excel Projects](https://github.com/JulianGriffin11/Excel_Projects)  
+
