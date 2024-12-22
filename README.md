@@ -46,5 +46,9 @@ Here you will find my **R-based data analysis** projects. Use the **links below*
 
 🚀 Click the heading links to dive deeper into each project! 🚀
 
+- Check out some of my other work:  
+  - [📊 SQL Projects](https://github.com/JulianGriffin11/SQL_Projects)  
+  - [📘 Excel Projects](https://github.com/JulianGriffin11/Excel_Projects)  
+
 Yours in solutions,   
 **Julian Griffin :)**
