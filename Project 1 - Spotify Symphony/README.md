@@ -123,5 +123,8 @@ Click [here](./Spotify%20Symphony.R) to explore the **Spotify Symphony** code in
 
 - Check out some of my other work:  
   - [📊 SQL Projects](https://github.com/JulianGriffin11/SQL_Projects)  
-  - [📘 Excel Projects](https://github.com/JulianGriffin11/Excel_Projects)  
+  - [📘 Excel Projects](https://github.com/JulianGriffin11/Excel_Projects)
+
+Sincerely,  
+Julian
 
