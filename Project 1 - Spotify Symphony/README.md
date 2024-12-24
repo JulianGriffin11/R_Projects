@@ -68,7 +68,7 @@ abline(h = 0, col = "red")
 ```
 
 ### **4. ✂️ Model Refinement**  
-- Enhanced the model thorough filtering problematic values by:  
+- Enhanced the model through filtering problematic values by:  
   - **Excluding zero-popularity songs** which were violating assumptions.  
   - **Removing weak predictors** to improve model stability.
 
