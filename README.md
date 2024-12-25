@@ -15,7 +15,7 @@ Here you will find my **R-based data analysis** projects. Use the **links below*
 - **Skills Learned**:  
   - Linear regression analysis  
   - Model diagnostics and assumption checks  
-  - Data wrangling and visualization using various library like `ggplot2`, `lm`, `car`, etc.
+  - Data wrangling and visualization using various libraries like `ggplot2`, `lm`, `car`, etc.
 - **Important Note**: Please make sure your working directory is set when running the file!
   
 
