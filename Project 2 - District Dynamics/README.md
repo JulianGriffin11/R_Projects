@@ -25,7 +25,7 @@ Step into the world of District Dynamics with me! In this project, I dive deep i
 ---
 
 ## 📊 **Data Overview**  
-The clean_data.csv contains detailed housing data. Key variables include:
+Key variables include:
 
 - **Sale_price**: Total sale price of the house.
 - **Lotsize**: Size of the lot in square feet.
@@ -35,21 +35,23 @@ The clean_data.csv contains detailed housing data. Key variables include:
 - **District**: A categorical variable representing neighbourhoods.
 - **Bdrms**: Number of bedrooms.
 
+<img src="../Media/DD_Data.png" alt="Visual of Code" width="50%" />
+
 A log-transformed variable, **ppsq** (price per square foot), serves as the dependent variable.
 
 ---
 
-## 🔧 **Methodology** (Steps 1-6)
+## 🔧 **Methodology** (Steps 1-5)
 
 ### **1. 📂 Data Wrangling**  
 - Loaded the dataset and filtered out unrealistic values:
   - **Lotsize** > 0
   - **Sale_price** ≥ $10,000
   - **Fin_sqft** ≥ 500
-- Computed **log-transformed price per square foot**.
+- Computed log-transformed price per square foot.
   
 
-### **2. 🧩 Model Construction**  
+### **2. 📖 Model Construction**  
 
 - Next step was to fit a multiple linear regression model:
 ``` R
@@ -63,9 +65,9 @@ summary(linear_model)
 ### **3. 🔄 Variable Selection**  
 - Performed **all-subsets regression** using the leaps package:
 
-<img src="../Media/CHANGE.gif" alt="Visual of Code" width="40%" />
+<img src="../Media/All_sub_reg.png" alt="Visual of Code" width="60%" />
 
-- Takeaways:
+- Key Takeaways:
   - As we can see LotSize, Sale_Date, Year_Built, District12, and District5 are key predictors.
   - Adding more regressors doesn't necessarily equal a better model.
 
@@ -77,15 +79,16 @@ hat_values <- hatvalues(linear_model)
 high_leverage <- mean(hat_values > (2 * length(coef(linear_model)) / nrow(clean_data_refit)))
 cat("High-leverage observations:", high_leverage * 100, "%\n")
 ```
-#### Analysis:
+#### Highlighted Analysis:
 - Leverage points account for about 2% of our data.
-- Although, none of these data points negatively affect our model.
+- Nevertheless, none of these data points negatively affect our model.
   
 
 ### **5. ⚖️ Key Findings**  
 - The model explains **21% of the variability** in price per square foot.
 - Significant predictors: **log(Lotsize)**, **Sale_date**, **Year_Built**, **Bdrms**.
 - Multicollinearity was **not significant**.
+- No **outliers** significantly affected our model fit.
 
 
 ---
@@ -93,7 +96,7 @@ cat("High-leverage observations:", high_leverage * 100, "%\n")
 ## 🔒 **Conclusions & Recommendations**
 
 ### **Conclusions**
-Through careful **data wrangling**, **regression modeling**, and *outlier analysis*, you've built a model that explains **21%** of price variability. Key predictors, such as **lot size** and **sale date**, were identified, while *multicollinearity* wasn’t an issue. This project is a strong demonstration of your growing skills in **data analysis**, **regression modeling**, and refining models to extract valuable insights from housing data. 🏠📊🔍
+Through careful **data wrangling**, **regression modeling**, and *outlier analysis*, I've built a model that explains **21%** of price variability. Key predictors, such as **lot size** and **sale date**, were identified, while *multicollinearity* wasn’t an issue. This project is a strong demonstration of my growing skills in **data analysis**, **regression modeling**, and refining models to extract valuable insights from housing data. 🏠📊🔍
 
 
 ### **Recommendations**
