@@ -1,4 +1,4 @@
-# [🏢 District Dynamics: Housing Market Analysis 🏢](./District%20Dynamics.R)
+# [🏢 District Dynamics: Housing Market Analysis 🏢](./District_Dynamics.R)
 
 <img src="../Media/SS_Run.gif" alt="Visual of Code" width="70%" />
 
