@@ -13,13 +13,13 @@
 # Important Note: Please set your own working directory as the one in the file is my own!
 
 # Set working directory and load dataset
-setwd("/Users/juliangriffin/Desktop/District Dynamics")
+setwd("/Users/juliangriffin/Desktop/GitHub/R_Projects_Local/R_Projects/Project 2 - District Dynamics")
 clean_data <- read.csv("clean_data.csv")
 
 # Preview the first few rows of the data
 head(clean_data)
 
-## Filter the dataset for parameters:
+## Filter the dataset with the following parameters:
 # 1. Lot size greater than 0 sqft
 # 2. Sale price greater than or equal to $10 000
 # 3. Finished square feet greater than or equal to 500 units
@@ -46,8 +46,12 @@ library(car)
 vif_values <- vif(linear_model)
 print(vif_values)
 
+## Key Insights:
+# - The model explains ~21% of the variability in the price per square foot.
+# - No covariates show signs of multicollinearity (as the VIF values <3)
+
 # ----------------------------------------------------------------------------------------
-# 3. Refining the Model
+# 3. Variable Selection
 # ----------------------------------------------------------------------------------------
 
 # Perform all-subsets regression using 'leaps' package
@@ -64,6 +68,10 @@ all <- leaps::regsubsets(ppsq ~ log(Lotsize) + Sale_date + Year_Built + District
 # Visualize adjusted R² values for different models
 plot(all, scale = "adjr2")
 
+## Plot Analysis:
+# - LotSize, Sale_Date, Year_Built, District12, and District5 are key predictors contributing most to price prediction.
+# - Adding more predictors beyond this model shows diminishing returns on adjusted R^2
+
 # ----------------------------------------------------------------------------------------
 # 4. Outlier & Influence Analysis
 # ----------------------------------------------------------------------------------------
@@ -77,21 +85,26 @@ cooks_distance <- cooks.distance(linear_model)
 influential_points <- mean(cooks_distance > 1)
 cat("Proportion of influential points:", influential_points * 100, "%\n")
 
+## Insights:
+# - 2.4% of our data has high leverage (unusual prediction)
+# - However, 0% of these points effect the regression fitting
+
 # ----------------------------------------------------------------------------------------
 # 5. Key Findings & Model Performance
 # ----------------------------------------------------------------------------------------
 
 ## Key Insights:
-# - The model explains ~21% of the variability in the price per square foot.
+# - The model explains ~21% of the variability in the output (price per square foot)
 # - Significant variables: log(Lotsize), Sale_date, Year_Built, Bdrms.
 # - No significant multicollinearity, all predictors are independent.
+# - No signigicant outliers that effect our model.
 
 # ----------------------------------------------------------------------------------------
 # 6. Final Thoughts & Recommendations
 # ----------------------------------------------------------------------------------------
 
 # Conclusions:
-# - The current model provides useful insights, though some predictors (District) could be refined for better precision.
+# - The current model provides useful insights, though some predictors could be refined for better precision.
 # - The model performs decently with room for further improvement.
 
 # Recommendations:
