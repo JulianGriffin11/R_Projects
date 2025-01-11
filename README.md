@@ -34,7 +34,7 @@ Here you will find my **R-based data analysis** projects. Use the **links below*
 
 <br>
 
-<img src="./Media/DD_Intro.gif" alt="Visual of Code Execution" width="60%" />
+<img src="./Media/DD_New_M.gif" alt="Visual of Code Execution" width="60%" />
 
 ---
 
