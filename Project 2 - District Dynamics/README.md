@@ -5,7 +5,8 @@
 ---
 
 ## 🚀 **Introduction**  
-Welcome to *District Dynamics*! This project explores a dataset of real estate transactions to uncover factors affecting housing prices. By focusing on price per square foot, this analysis digs into variables like lot size, number of bedrooms, and sale date. The journey blends data wrangling, model building, and regression diagnostics to better understand price variability in the housing market.
+
+Step into the world of District Dynamics with me! In this project, I dive deep into a treasure trove of real estate data to uncover the mysterious forces that control housing prices. My journey revolves around the price per square foot, as I try to figure out how lot size, number of bedrooms, and sale date all fit into the big picture. Join me in this adventure—you might even learn something about pricing that could save you a fortune!
 
 ---
 
@@ -42,64 +43,70 @@ A log-transformed variable, **ppsq** (price per square foot), serves as the depe
 
 ### **1. 📂 Data Wrangling**  
 - Loaded the dataset and filtered out unrealistic values:
-  - **Lotsize > 0**
-  - **Sale_price ≥ $10,000**
-  - **Fin_sqft ≥ 500**
+  - **Lotsize** > 0
+  - **Sale_price** ≥ $10,000
+  - **Fin_sqft** ≥ 500
 - Computed **log-transformed price per square foot**.
+  
 
-### **2. ⚙️ Model Construction**  
+### **2. 🧩 Model Construction**  
 
-- First, I fit a multiple linear regression model:
+- Next step was to fit a multiple linear regression model:
 ``` R
 linear_model <- lm(ppsq ~ log(Lotsize) + Sale_date + Year_Built + District + Bdrms, data = clean_data_refit)
 summary(linear_model)
 ```
 
-- Subsequently, I checked multicollinearity with Variance Inflation Factor (VIF):
+- Subsequently, I checked multicollinearity with Variance Inflation Factor (VIF).
 
 
-### **3. 🔄 Model Refinement**  
+### **3. 🔄 Variable Selection**  
 - Performed **all-subsets regression** using the leaps package:
-R
-all <- leaps::regsubsets(ppsq ~ log(Lotsize) + Sale_date + Year_Built + District + Bdrms, data = clean_data_refit, nvmax = 50)
-plot(all, scale = "adjr2")
+
+<img src="../Media/CHANGE.gif" alt="Visual of Code" width="40%" />
+
+- Takeaways:
+  - As we can see LotSize, Sale_Date, Year_Built, District12, and District5 are key predictors.
+  - Adding more regressors doesn't necessarily equal a better model.
 
 
-### **4. 🥵 Outlier & Influence Analysis**  
+### **4. 🧰 Outlier & Influence Analysis**  
 - Identified high-leverage points and influential observations:
-R
+``` R
 hat_values <- hatvalues(linear_model)
 high_leverage <- mean(hat_values > (2 * length(coef(linear_model)) / nrow(clean_data_refit)))
 cat("High-leverage observations:", high_leverage * 100, "%\n")
-
+```
+#### Analysis:
+- Leverage points account for about 2% of our data.
+- Although, none of these data points negatively affect our model.
+  
 
 ### **5. ⚖️ Key Findings**  
 - The model explains **21% of the variability** in price per square foot.
 - Significant predictors: **log(Lotsize)**, **Sale_date**, **Year_Built**, **Bdrms**.
 - Multicollinearity was **not significant**.
 
-### **6. 🧐 Final Thoughts**  
-- The model performs reasonably well but could be improved by refining categorical variables like **District**.
 
 ---
 
 ## 🔒 **Conclusions & Recommendations**
 
-### **Key Conclusions**
-- Larger lots and newer construction correlate with higher price per square foot.
-- Sale date trends reflect possible market shifts.
+### **Conclusions**
+Through careful **data wrangling**, **regression modeling**, and *outlier analysis*, you've built a model that explains **21%** of price variability. Key predictors, such as **lot size** and **sale date**, were identified, while *multicollinearity* wasn’t an issue. This project is a strong demonstration of your growing skills in **data analysis**, **regression modeling**, and refining models to extract valuable insights from housing data. 🏠📊🔍
+
 
 ### **Recommendations**
-1. **Enhance District Variable**: Break it down into more detailed neighbourhoods.
+1. **Enhance District Variable**: Break Districts down into more detailed neighbourhoods.
 2. **Assumption Testing**: Ensure robustness with assumption diagnostics.
-3. **Explore Machine Learning**: Use models like random forests for better accuracy.
+3. **Explore Machine Learning**: Using a more advanced model will likely yield better accuracy.
 
 ---
 
 ### 📂 **Access the R File**  
 Click [here](./District_Dynamics.R) to view the full code.
 
-*(Ensure the working directory is set to your local environment)*
+*Professional Note: Ensure the working directory is set to your local environment!*
 
 ---
 
@@ -107,5 +114,5 @@ Click [here](./District_Dynamics.R) to view the full code.
   - [📊 SQL Projects](https://github.com/JulianGriffin11/SQL_Projects)  
   - [📃 Excel Projects](https://github.com/JulianGriffin11/Excel_Projects)
 
-Sincerely,  
+All the best,  
 Julian
