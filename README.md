@@ -2,7 +2,7 @@
 
 Welcome to my **R Projects** repository! 🎯  
 
-Here you will find my **R-based data analysis** projects. Use the **links below** to dive into each project!
+Here you will find my **R-based data analysis** projects. Use the **heading linksw** to dive into each project!
 
 <img src="./Media/R_pic.jpeg" alt="R Projects Banner" width="500"/>
 
