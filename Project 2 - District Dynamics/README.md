@@ -49,16 +49,13 @@ A log-transformed variable, **ppsq** (price per square foot), serves as the depe
 
 ### **2. ⚙️ Model Construction**  
 
-- Developed an initial multiple linear regression model:
+- First, I fit a multiple linear regression model:
 ``` R
 linear_model <- lm(ppsq ~ log(Lotsize) + Sale_date + Year_Built + District + Bdrms, data = clean_data_refit)
 summary(linear_model)
 ```
 
-- Checked multicollinearity with Variance Inflation Factor (VIF):
-``` R
-vif(linear_model)
-```
+- Subsequently, I checked multicollinearity with Variance Inflation Factor (VIF):
 
 
 ### **3. 🔄 Model Refinement**  
