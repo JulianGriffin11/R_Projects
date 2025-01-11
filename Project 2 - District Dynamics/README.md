@@ -100,14 +100,14 @@ Through careful **data wrangling**, **regression modeling**, and *outlier analys
 
 
 ### **Recommendations**
-1. **Enhance District Variable**: Break Districts down into more detailed neighbourhoods.
-2. **Assumption Testing**: Ensure robustness with assumption diagnostics.
-3. **Explore Machine Learning**: Using a more advanced model will likely yield better accuracy.
+1. 🔣 **Enhance District Variable**: Break Districts down into more detailed neighbourhoods.
+2. 🔠 **Assumption Testing**: Ensure robustness with assumption diagnostics.
+3. 📶 **Explore Machine Learning**: Using a more advanced model will likely yield better accuracy.
 
 ---
 
 ### 📂 **Access the R File**  
-Click [here](./District_Dynamics.R) to view the full code.
+💡 Click [here](./District_Dynamics.R) to view the full code.
 
 *Professional Note: Ensure the working directory is set to your local environment!*
 
