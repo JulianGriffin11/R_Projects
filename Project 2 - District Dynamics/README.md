@@ -106,8 +106,9 @@ Through careful **data wrangling**, **regression modeling**, and *outlier analys
 
 ---
 
-### 📂 **Access the R File**  
-💡 Click [here](./District_Dynamics.R) to view the full code.
+### 📂 **Access the Files**  
+💡 Click [here](./District_Dynamics.R) to view the full code.  
+🧩 Click [here](./clean_data.csv) to view the dataset.
 
 *Professional Note: Ensure the working directory is set to your local environment!*
 
