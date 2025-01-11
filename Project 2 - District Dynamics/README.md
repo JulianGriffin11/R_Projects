@@ -1,6 +1,6 @@
 # [🏢 District Dynamics: Housing Market Analysis 🏢](./District_Dynamics.R)
 
-<img src="../Media/SS_Run.gif" alt="Visual of Code" width="70%" />
+<img src="../Media/DD_New_M.gif" alt="Visual of Code" width="70%" />
 
 ---
 
