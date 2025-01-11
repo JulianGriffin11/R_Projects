@@ -13,9 +13,9 @@ Here you will find my **R-based data analysis** projects. Use the **links below*
 ### 1. [🎵 **Project 1 - Spotify Symphony** 🎵](./Project%201%20-%20Spotify%20Symphony) 
 - **Summary**: This project dives into the world of Spotify data to uncover what drives song popularity. A linear regression model is built to explore relationships between various song attributes like danceability, energy, tempo, etc. 
 - **Skills Learned**:  
-  - Linear regression analysis  
-  - Model diagnostics and assumption checks  
-  - Data wrangling and visualization using various libraries like `ggplot2`, `lm`, `car`, etc.
+  - Linear Regression Analysis  
+  - Model Diagnostics and Assumption checks  
+  - Data Wrangling using libraries like `ggplot2`, `lm`, `car`, etc.
 - **Important Note**: Please make sure your working directory is set when running the file!
   
 
@@ -23,13 +23,13 @@ Here you will find my **R-based data analysis** projects. Use the **links below*
 
 <img src="./Media/SS_Run.gif" alt="Visual of Code Execution" width="60%" />
 
-### 2. [🏡 **Project 2 - District Dynamics: In Progress!** 🏡](./Project%202%20-%20District%20Dynamics)  
+### 2. [🏡 **Project 2 - District Dynamics** 🏡](./Project%202%20-%20District%20Dynamics)  
 - **Summary**: This project analyzes key housing data such as square footage, cost, and location to identify trends and detect outliers. I examine influential points to provide insights into the housing market.
-- **Skills Learned**:  
-  - Hypothesis Testing 
-  - Outlier Detection  
+- **Skills Learned**:
+  - All Subset Regression 
+  - Outlier Detection
   - Data Visualization
-- **Important Note**: This project is currently in progress 🚧!
+- **Important Note**: Please make sure your working directory is set when running the file!
   
 
 <br>
