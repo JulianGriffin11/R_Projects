@@ -15,7 +15,7 @@
 # Please set your own working directory as the following is my own!
 
 # Set working directory and assign name to data set
-setwd("/Users/juliangriffin/Desktop/R_Projects_Local/R_Projects/Project 1 - Spotify Symphony")
+setwd("/Users/juliangriffin/Desktop/GitHub/R_Projects_Local/R_Projects")
 spotify <- read.csv("spotify_data.csv")
 
 # Preview data to see if everything loaded properly
