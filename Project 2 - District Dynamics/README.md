@@ -12,19 +12,19 @@ Welcome to *District Dynamics*! This project explores a dataset of real estate t
 ## 🎯 **Objectives**  
 1. 📊 Identify key factors influencing **price per square foot**.  
 2. ✅ Ensure **variable selection** is maximized.  
-3. ⏪ Check for possible **outliers** influencing the model.
+3. ⏪ Check for **possible outliers** influencing the model. 
 
 ---
 
 ## 🛠 **Skills and Tools**  
-- **Programming Language:** R  
-- **Libraries:** `car`, `leaps`  
-- **Skills Demonstrated:** Data cleaning, linear regression, multicollinearity checks, outlier detection, model refinement
+- **Programming Language:** R
+- **Libraries:** `leaps`, `car` 
+- **Skills Demonstrated:** Outlier detection, multicollinearity checks, data cleaning, linear regression, model refinement
 
 ---
 
 ## 📊 **Data Overview**  
-The `clean_data.csv` contains detailed housing data. Key variables include:
+The clean_data.csv contains detailed housing data. Key variables include:
 
 - **Sale_price**: Total sale price of the house.
 - **Lotsize**: Size of the lot in square feet.
@@ -42,56 +42,59 @@ A log-transformed variable, **ppsq** (price per square foot), serves as the depe
 
 ### **1. 📂 Data Wrangling**  
 - Loaded the dataset and filtered out unrealistic values:
-  - **Lotsize > 0**  
-  - **Sale_price ≥ $10,000**  
-  - **Fin_sqft ≥ 500**  
+  - **Lotsize > 0**
+  - **Sale_price ≥ $10,000**
+  - **Fin_sqft ≥ 500**
 - Computed **log-transformed price per square foot**.
 
 ### **2. ⚙️ Model Construction**  
+
 - Developed an initial multiple linear regression model:
-```R
+``` R
 linear_model <- lm(ppsq ~ log(Lotsize) + Sale_date + Year_Built + District + Bdrms, data = clean_data_refit)
 summary(linear_model)
 ```
+
 - Checked multicollinearity with Variance Inflation Factor (VIF):
-```R
+``` R
 vif(linear_model)
 ```
 
+
 ### **3. 🔄 Model Refinement**  
-- Performed **all-subsets regression** using the `leaps` package:
-```R
+- Performed **all-subsets regression** using the leaps package:
+R
 all <- leaps::regsubsets(ppsq ~ log(Lotsize) + Sale_date + Year_Built + District + Bdrms, data = clean_data_refit, nvmax = 50)
 plot(all, scale = "adjr2")
-```
+
 
 ### **4. 🥵 Outlier & Influence Analysis**  
 - Identified high-leverage points and influential observations:
-```R
+R
 hat_values <- hatvalues(linear_model)
 high_leverage <- mean(hat_values > (2 * length(coef(linear_model)) / nrow(clean_data_refit)))
 cat("High-leverage observations:", high_leverage * 100, "%\n")
-```
+
 
 ### **5. ⚖️ Key Findings**  
-- The model explains **21% of the variability** in price per square foot.  
-- Significant predictors: **log(Lotsize)**, **Sale_date**, **Year_Built**, **Bdrms**.  
+- The model explains **21% of the variability** in price per square foot.
+- Significant predictors: **log(Lotsize)**, **Sale_date**, **Year_Built**, **Bdrms**.
 - Multicollinearity was **not significant**.
 
-### **6. 🤨 Final Thoughts**  
+### **6. 🧐 Final Thoughts**  
 - The model performs reasonably well but could be improved by refining categorical variables like **District**.
 
 ---
 
 ## 🔒 **Conclusions & Recommendations**
 
-### **Key Conclusions**  
-- Larger lots and newer construction correlate with higher price per square foot.  
+### **Key Conclusions**
+- Larger lots and newer construction correlate with higher price per square foot.
 - Sale date trends reflect possible market shifts.
 
-### **Recommendations**  
-1. **Enhance District Variable**: Break it down into more detailed neighbourhoods.  
-2. **Assumption Testing**: Ensure robustness with assumption diagnostics.  
+### **Recommendations**
+1. **Enhance District Variable**: Break it down into more detailed neighbourhoods.
+2. **Assumption Testing**: Ensure robustness with assumption diagnostics.
 3. **Explore Machine Learning**: Use models like random forests for better accuracy.
 
 ---
@@ -105,8 +108,7 @@ Click [here](./District_Dynamics.R) to view the full code.
 
 - Discover my other work:
   - [📊 SQL Projects](https://github.com/JulianGriffin11/SQL_Projects)  
-  - [💃 Excel Projects](https://github.com/JulianGriffin11/Excel_Projects)
+  - [📃 Excel Projects](https://github.com/JulianGriffin11/Excel_Projects)
 
 Sincerely,  
 Julian
-
