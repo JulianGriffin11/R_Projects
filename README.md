@@ -1,8 +1,8 @@
-# 💻 Portfolio Projects
+# 💻 R Projects
 
-Welcome to my **Portfolio Projects** repository! 🎯  
+Welcome to my **R Projects** repository! 🎯  
 
-Here you will find my personal **Statistics, Data, and Financial Analyst** projects. Use the **heading links** to dive into each project!
+Here you will find my **R-based** projects. Use the **heading links** to dive into each project!
 
 <img src="./Media/R_pic.jpeg" alt="R Projects Banner" width="500"/>
 
@@ -11,12 +11,10 @@ Here you will find my personal **Statistics, Data, and Financial Analyst** proje
 ## 🗂️ Projects
 
 ### 1. [🎵 **Project 1 - Spotify Symphony** 🎵](./Project%201%20-%20Spotify%20Symphony) 
-- **Summary**: This project aims to uncover key insights into the Spotify song algorithm. A linear regression model is built to explore relationships between various song attributes like danceability, energy, tempo, and more to predict song Popularity.
-- **Applications**: R, Excel
+- **Summary**: This project aims to explore Spotify song popularity. A linear regression model is built to explore relationships between various song attributes like danceability, energy, tempo, etc.
 - **Skills Learned**:  
-  - Linear Regression Analysis  
-  - Dashboard Construction
-  - Pivot Table Analysis
+  - Linear Regression Analysis
+  - Assumption check and manipulation
   - Data Wrangling using libraries like `ggplot2`, `lm`, `car`, etc.
 - **Important Note**: Please ensure your working directory is set when acessing the R files!
   
@@ -27,7 +25,6 @@ Here you will find my personal **Statistics, Data, and Financial Analyst** proje
 
 ### 2. [🏡 **Project 2 - District Dynamics** 🏡](./Project%202%20-%20District%20Dynamics)  
 - **Summary**: This project analyzes key housing data such as square footage, cost, and location to identify trends and detect outliers. I examine influential points to provide insights into the housing market.
-- **Applications**: SQL, Excel
 - **Skills Learned**:
   - All Subset Regression 
   - Outlier Detection
