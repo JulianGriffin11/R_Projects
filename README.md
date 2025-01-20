@@ -1,8 +1,8 @@
-# 💻 R Projects
+# 💻 Portfolio Projects
 
-Welcome to my **R Projects** repository! 🎯  
+Welcome to my **Portfolio Projects** repository! 🎯  
 
-Here you will find my **R-based data analysis** projects. Use the **heading links** to dive into each project!
+Here you will find my personal **Statistics, Data, and Financial Analyst** projects. Use the **heading links** to dive into each project!
 
 <img src="./Media/R_pic.jpeg" alt="R Projects Banner" width="500"/>
 
@@ -18,7 +18,7 @@ Here you will find my **R-based data analysis** projects. Use the **heading link
   - Dashboard Construction
   - Pivot Table Analysis
   - Data Wrangling using libraries like `ggplot2`, `lm`, `car`, etc.
-- **Important Note**: Please make sure your working directory is set when the R files!
+- **Important Note**: Please ensure your working directory is set when acessing the R files!
   
 
 <br>
@@ -27,7 +27,7 @@ Here you will find my **R-based data analysis** projects. Use the **heading link
 
 ### 2. [🏡 **Project 2 - District Dynamics** 🏡](./Project%202%20-%20District%20Dynamics)  
 - **Summary**: This project analyzes key housing data such as square footage, cost, and location to identify trends and detect outliers. I examine influential points to provide insights into the housing market.
-- **Applications **: SQL, Excel
+- **Applications**: SQL, Excel
 - **Skills Learned**:
   - All Subset Regression 
   - Outlier Detection
